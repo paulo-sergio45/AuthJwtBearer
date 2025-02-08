@@ -1,0 +1,99 @@
+@AuthJwtBearer_HostAddress = https://localhost:44356
+@Token = ''
+
+GET {{AuthJwtBearer_HostAddress}}/v1/Admin/GetUser
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+###
+
+GET {{AuthJwtBearer_HostAddress}}/v1/Admin/GetUsers
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+PUT {{AuthJwtBearer_HostAddress}}/v1/Admin/PutUser
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+{
+  "id": "Id",
+  "userName": "UserName",
+  "password": Password,
+  "email": "jd@gmail.com",
+  "userType": "UserType"
+}
+
+###
+
+DELETE {{AuthJwtBearer_HostAddress}}/v1/Admin/DeleteUser
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+POST {{AuthJwtBearer_HostAddress}}/v1/Auth/login
+Content-Type: application/json
+
+{
+ 
+  "password": "password",
+  "email": "user0@example.com"
+}
+
+###
+
+GET {{AuthJwtBearer_HostAddress}}/v1/Auth/recover-password
+Content-Type: application/json
+
+###
+
+GET {{AuthJwtBearer_HostAddress}}/v1/Auth/confirm-email 
+Content-Type: application/json
+
+###
+POST {{AuthJwtBearer_HostAddress}}/v1/Auth/refresh-token
+Content-Type: application/json
+
+{
+  "refresh-token": "token"
+}
+
+###
+
+
+POST {{AuthJwtBearer_HostAddress}}/v1/Users/PostUser 
+Content-Type: application/json
+{
+  "userName": "user",
+  "password": "senha",
+  "email": "user@example.com"
+}
+
+###
+
+GET {{AuthJwtBearer_HostAddress}}/v1/Users/GetUser?id=2
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+###
+
+PUT {{AuthJwtBearer_HostAddress}}/v1/Users/PutUser
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+{
+  "id": "Id",
+  "userName": "UserName",
+  "password": Password,
+  "email": "jd@gmail.com",
+  "userType": "UserType"
+}
+
+###
+
+DELETE {{AuthJwtBearer_HostAddress}}/v1/Users/DeleteUser  
+Content-Type: application/json 
+Authorization: Bearer {{Token}}
+
+###
