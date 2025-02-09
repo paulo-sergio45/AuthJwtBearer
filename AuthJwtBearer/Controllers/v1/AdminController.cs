@@ -52,11 +52,11 @@ namespace AuthJwtBearer.Controllers.v1
         [HttpGet]
         [Route("GetUsers")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<List<UserResponseDTO>>> GetUsers()
+        public async Task<ActionResult<List<UserResponseDTO>>> GetUsers([FromQuery] int pagina, int size)
         {
             try
             {
-                var usuarioEncontrado = await _userRepository.GetUsuariosAsync();
+                var usuarioEncontrado = await _userRepository.GetUsuariosAsync(pagina, size);
 
                 var usuario = usuarioEncontrado.ConvertAll(x => new UserResponseDTO()
                 {

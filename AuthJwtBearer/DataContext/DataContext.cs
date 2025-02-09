@@ -18,7 +18,7 @@ namespace AuthJwtBearer.DataBaseContext
             //options.UseSqlite(_configuration.GetConnectionString("SqliteConnection") ?? throw new InvalidOperationException("Connection string 'SqliteConnection' not found."));
 
             // SqlServer
-            options.UseSqlServer(_configuration.GetConnectionString("SqlServerConnection")) ?? throw new InvalidOperationException("Connection string 'SqlServerConnection' not found."));
+            options.UseSqlServer(_configuration.GetConnectionString("SqlServerConnection") ?? throw new InvalidOperationException("Connection string 'SqlServerConnection' not found."));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

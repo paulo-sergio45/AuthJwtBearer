@@ -5,7 +5,7 @@ namespace AuthJwtBearer.Interfaces
 {
     public interface IUserRepository
     {
-        Task<List<User>> GetUsuariosAsync();
+        Task<List<User>> GetUsuariosAsync(int pagina, int size);
 
         Task<User?> GetUsuarioByEmailAsync(string Email);
 

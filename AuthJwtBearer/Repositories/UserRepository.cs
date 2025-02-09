@@ -14,9 +14,9 @@ namespace AuthJwtBearer.Repositories
         private readonly RandomNumberGenerator _rng = RandomNumberGenerator.Create();
         private readonly IPasswordHelper _passwordHelper = passwordHelper;
 
-        public async Task<List<User>> GetUsuariosAsync()
+        public async Task<List<User>> GetUsuariosAsync(int pagina, int size)
         {
-            return await _context.Usuarios.ToListAsync();
+            return await _context.Usuarios.OrderByDescending(x => x.UserName).Skip(size * (pagina - 1)).Take(size).ToListAsync();
         }
 
         public async Task<User?> GetUsuarioByIdAsync(Guid usuarioId)
